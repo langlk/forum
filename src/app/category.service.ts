@@ -11,4 +11,12 @@ export class CategoryService {
     return CATEGORIES;
   }
 
+  findCategory(name: string) {
+    for (var i = 0; i < CATEGORIES.length; i++) {
+      if (CATEGORIES[i].name == name) {
+        return CATEGORIES[i];
+      }
+    }
+  }
+
 }

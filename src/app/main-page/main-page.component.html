@@ -4,5 +4,7 @@
 
 <div class="categories">
   <h2>Discussion Categories</h2>
-  <h3 *ngFor="let category of categories">{{category.name}}</h3>
+  <h3 *ngFor="let category of categories">
+    <a (click)="goTo(category)">{{category.name}}</a>
+  </h3>
 </div>

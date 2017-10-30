@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Category } from '../category.model';
 import { CategoryService } from '../category.service';
@@ -12,10 +13,14 @@ import { CategoryService } from '../category.service';
 export class MainPageComponent implements OnInit {
   categories: Category[];
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private router: Router, private categoryService: CategoryService) { }
 
   ngOnInit() {
     this.categories = this.categoryService.getCategories();
+  }
+
+  goTo(category: Category) {
+    this.router.navigate(['categories', category.name])
   }
 
 }
