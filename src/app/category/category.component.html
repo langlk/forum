@@ -1,3 +1,9 @@
 <div class="page-header">
   <h1>{{category.name}}</h1>
 </div>
+
+<div class="posts">
+  <h2>Posts</h2>
+  <h3 *ngIf="category.posts.length == 0">There are no posts yet!</h3>
+  <h3 *ngFor="let post of category.posts">{{post.title}}</h3>
+</div>
