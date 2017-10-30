@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Category } from '../category.model';
+import { Post } from '../post.model';
 import { CategoryService } from '../category.service';
 
 @Component({
@@ -14,6 +15,7 @@ import { CategoryService } from '../category.service';
 export class CategoryComponent implements OnInit {
   categoryName: string;
   category: Category;
+  focusedPost: Post;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +28,10 @@ export class CategoryComponent implements OnInit {
       this.categoryName = urlParameters['name'];
     });
     this.category = this.categoryService.findCategory(this.categoryName);
+  }
+
+  showPost(post: Post) {
+    this.focusedPost = post;
   }
 
 }
