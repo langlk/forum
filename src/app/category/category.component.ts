@@ -34,4 +34,8 @@ export class CategoryComponent implements OnInit {
     this.focusedPost = post;
   }
 
+  addPost(post: Post) {
+    this.category.posts.push(post);
+  }
+
 }
