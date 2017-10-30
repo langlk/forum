@@ -11,6 +11,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { PostDiscussionComponent } from './post-discussion/post-discussion.component';
+import { CommentsThreadComponent } from './comments-thread/comments-thread.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PostDiscussionComponent } from './post-discussion/post-discussion.compo
     PostDetailComponent,
     NewPostComponent,
     EditPostComponent,
-    PostDiscussionComponent
+    PostDiscussionComponent,
+    CommentsThreadComponent
   ],
   imports: [
     BrowserModule,

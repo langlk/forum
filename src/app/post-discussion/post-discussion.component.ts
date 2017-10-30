@@ -37,7 +37,7 @@ export class PostDiscussionComponent implements OnInit {
     this.mainPost.comments.push(comment);
   }
 
-  postEvent(event: string, post: Post) {
+  eventHandle(event: string, post: Post) {
     if (event == "edit") {
       this.edit(post);
     } else if (event == "delete") {
@@ -46,6 +46,8 @@ export class PostDiscussionComponent implements OnInit {
       this.upgoat(post);
     } else if (event == "downgoat") {
       this.downgoat(post);
+    } else if (event == "endEdit") {
+      this.endEdit();
     }
   }
 

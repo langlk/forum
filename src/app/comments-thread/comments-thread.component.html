@@ -1,0 +1,25 @@
+<div class="comments-thread">
+  <app-post-detail
+    *ngIf="editPost != post"
+    [post]="post"
+    (postButton)="postHandle($event, post)">
+  </app-post-detail>
+  <button (click)="reply(post)" type="button" class="btn">Reply</button>
+  <app-new-post
+    *ngIf="replyPost == post"
+    [category]="category"
+    [parent]="post"
+    (newPost)="addComment($event)">
+  </app-new-post>
+  <app-edit-post
+    *ngIf="editPost == post"
+    [post]="editPost"
+    (editDone)="postHandle('endEdit', null)">
+  </app-edit-post>
+  <app-comments-thread
+    *ngFor="let comment of post.comments"
+    [post]="comment"
+    [editPost]="editPost"
+    (threadEvent)="commentHandle($event)">
+  </app-comments-thread>
+</div>
