@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Post } from '../post.model';
 
@@ -9,10 +9,15 @@ import { Post } from '../post.model';
 })
 export class PostDetailComponent implements OnInit {
   @Input() post: Post;
+  @Output() editPost = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  edit() {
+    this.editPost.emit();
   }
 
 }

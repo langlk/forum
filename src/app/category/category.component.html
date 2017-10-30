@@ -9,8 +9,14 @@
     <h3 (click)='showPost(post)'>{{post.title}}</h3>
     <app-post-detail
       *ngIf="focusedPost == post"
-      [post]="focusedPost">
+      [post]="focusedPost"
+      (editPost)=edit(post)>
     </app-post-detail>
+    <app-edit-post
+      *ngIf="editPost == post"
+      [post]="editPost"
+      (editDone)="endEdit(post)">
+    </app-edit-post>
   </div>
 </div>
 

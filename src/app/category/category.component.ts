@@ -16,6 +16,7 @@ export class CategoryComponent implements OnInit {
   categoryName: string;
   category: Category;
   focusedPost: Post;
+  editPost: Post;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,11 +32,22 @@ export class CategoryComponent implements OnInit {
   }
 
   showPost(post: Post) {
+    this.editPost = null;
     this.focusedPost = post;
   }
 
   addPost(post: Post) {
     this.category.posts.push(post);
+  }
+
+  edit(post: Post) {
+    this.focusedPost = null;
+    this.editPost = post;
+  }
+
+  endEdit(post: Post) {
+    this.editPost = null;
+    this.focusedPost = post;
   }
 
 }
