@@ -17,6 +17,8 @@ export class CategoryComponent implements OnInit {
   category: Category;
   focusedPost: Post;
   editPost: Post;
+  param: string;
+  sub;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,10 +28,11 @@ export class CategoryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.forEach((urlParameters) => {
-      this.categoryName = urlParameters['name'];
+    this.sub = this.route.params.subscribe(params => {
+      this.categoryName = params['name'];
+      this.category = this.categoryService.findCategory(this.categoryName);
+
     });
-    this.category = this.categoryService.findCategory(this.categoryName);
   }
 
   showPost(post: Post) {
