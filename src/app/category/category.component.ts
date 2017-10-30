@@ -62,4 +62,11 @@ export class CategoryComponent implements OnInit {
     this.category.delete(post);
   }
 
+  upgoat(post: Post) {
+    post.upgoat();
+  }
+
+  downgoat(post: Post) {
+    post.downgoat();
+  }
 }
