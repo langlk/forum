@@ -1,7 +1,7 @@
 <div class="new-post">
   <h2>Add a <span *ngIf="!parent">Post</span><span *ngIf="parent">Comment</span></h2>
   <form>
-    <div *ngIf="!parent" class="form-group">
+    <div class="form-group {{parent ? 'comment' : null}}" >
       <label for="title">Title:</label>
       <input #title class="form-control">
     </div>
