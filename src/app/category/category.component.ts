@@ -31,7 +31,6 @@ export class CategoryComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.categoryName = params['name'];
       this.category = this.categoryService.findCategory(this.categoryName);
-
     });
   }
 
