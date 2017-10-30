@@ -8,8 +8,6 @@
   <div *ngFor="let post of category.posts" class="post">
     <h3>
       <a (click)="goTo(post)">{{post.title}}</a>
-      <span (click)="upgoat(post)" class="upgoat clickable">{{post.upgoats}}⬆️</span>
-      <span (click)="downgoat(post)" class="downgoat clickable">{{post.downgoats}}⬇️</span>
       <button *ngIf="focusedPost != post" type="button" class="btn" (click)='showPost(post)'>Preview</button>
       <button *ngIf="focusedPost == post" type="button" class="btn" (click)='hidePost()'>Hide Preview</button>
     </h3>

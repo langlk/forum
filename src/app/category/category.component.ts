@@ -50,6 +50,10 @@ export class CategoryComponent implements OnInit {
       this.edit(post);
     } else if (event == "delete") {
       this.delete(post);
+    } else if (event == "upgoat") {
+      this.upgoat(post);
+    } else if (event == "downgoat") {
+      this.downgoat(post);
     }
   }
 

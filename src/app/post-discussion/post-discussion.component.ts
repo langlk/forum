@@ -16,6 +16,7 @@ export class PostDiscussionComponent implements OnInit {
   categoryName: string;
   mainPost: Post;
   category: Category;
+  editPost: Post;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,5 +34,37 @@ export class PostDiscussionComponent implements OnInit {
 
   addComment(comment: Post) {
     this.mainPost.comments.push(comment);
+  }
+
+  postEvent(event: string, post: Post) {
+    if (event == "edit") {
+      this.edit(post);
+    } else if (event == "delete") {
+      this.delete(post);
+    } else if (event == "upgoat") {
+      this.upgoat(post);
+    } else if (event == "downgoat") {
+      this.downgoat(post);
+    }
+  }
+
+  edit(post: Post) {
+    this.editPost = post;
+  }
+
+  endEdit(post: Post) {
+    this.editPost = null;
+  }
+
+  delete(post: Post) {
+    this.category.delete(post);
+  }
+
+  upgoat(post: Post) {
+    post.upgoat();
+  }
+
+  downgoat(post: Post) {
+    post.downgoat();
   }
 }

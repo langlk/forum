@@ -25,4 +25,12 @@ export class PostDetailComponent implements OnInit {
     this.postButton.emit("delete");
   }
 
+  upgoat() {
+    this.postButton.emit("upgoat");
+  }
+
+  downgoat() {
+    this.postButton.emit("downgoat");
+  }
+
 }
