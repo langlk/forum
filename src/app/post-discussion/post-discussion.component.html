@@ -2,7 +2,16 @@
   <h1>{{category.name}} > {{mainPost.title}}</h1>
 </div>
 
-<app-post-detail [post]="mainPost" (postButton)="postEvent($event, mainPost)"></app-post-detail>
+<app-post-detail
+  *ngIf="editPost != mainPost"
+  [post]="mainPost"
+  (postButton)="postEvent($event, mainPost)"
+></app-post-detail>
+<app-edit-post
+  *ngIf="editPost == mainPost"
+  [post]="editPost"
+  (editDone)="endEdit()">
+</app-edit-post>
 
 <div class="comments">
   <h2>Comments</h2>

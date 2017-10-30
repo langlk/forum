@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Post } from '../post.model';
@@ -19,6 +19,7 @@ export class PostDiscussionComponent implements OnInit {
   editPost: Post;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private location: Location,
     private categoryService: CategoryService) { }
@@ -52,12 +53,13 @@ export class PostDiscussionComponent implements OnInit {
     this.editPost = post;
   }
 
-  endEdit(post: Post) {
+  endEdit() {
     this.editPost = null;
   }
 
   delete(post: Post) {
     this.category.delete(post);
+    this.router.navigate(['categories', this.category.name]);
   }
 
   upgoat(post: Post) {
