@@ -4,6 +4,7 @@ export class Post {
   posted: Date;
   lastEdited: Date;
   comments: Post[] = [];
+  deleted: boolean = false;
 
   constructor(
     public id: number,
@@ -26,7 +27,16 @@ export class Post {
   delete(comment: Post) {
     for (var i = 0; i < this.comments.length; i++) {
       if (this.comments[i] == comment) {
-        this.comments = this.comments.slice(0, i).concat(this.comments.slice(i + 1));
+        if (this.comments[i].comments.length != 0) {
+          this.comments[i].deleted = true;
+          this.comments[i].author = null;
+          this.comments[i].upgoats = null;
+          this.comments[i].downgoats = null;
+          this.comments[i].lastEdited = null;
+          this.comments[i].posted = null;
+        } else {
+          this.comments = this.comments.slice(0, i).concat(this.comments.slice(i + 1));
+        }
       }
     }
   }
