@@ -58,8 +58,12 @@ export class PostDiscussionComponent implements OnInit {
   }
 
   delete(post: Post) {
-    this.category.delete(post);
-    this.router.navigate(['categories', this.category.name]);
+    if (post.id) {
+      this.category.delete(post);
+      this.router.navigate(['categories', this.category.name]);
+    } else {
+      this.mainPost.delete(post);
+    }
   }
 
   upgoat(post: Post) {

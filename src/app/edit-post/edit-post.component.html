@@ -1,7 +1,7 @@
 <div class="edit-post">
-  <h4>Edit Post:</h4>
+  <h4>Edit <span *ngIf="post.id">Post</span><span *ngIf="!post.id">Comment</span>:</h4>
   <form>
-    <div class="form-group">
+    <div *ngIf="post.id" class="form-group">
       <label for="title">Title:</label>
       <input [(ngModel)]="post.title" name="title" class="form-control">
     </div>

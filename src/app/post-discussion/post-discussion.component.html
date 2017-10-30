@@ -5,8 +5,8 @@
 <app-post-detail
   *ngIf="editPost != mainPost"
   [post]="mainPost"
-  (postButton)="postEvent($event, mainPost)"
-></app-post-detail>
+  (postButton)="postEvent($event, mainPost)">
+</app-post-detail>
 <app-edit-post
   *ngIf="editPost == mainPost"
   [post]="editPost"
@@ -18,7 +18,16 @@
 
   <h3 *ngIf="mainPost.comments.length == 0">No Comments</h3>
   <div *ngFor="let comment of mainPost.comments" class="comment">
-    <app-post-detail [post]="comment" (postButton)="postEvent($event, comment)"></app-post-detail>
+    <app-post-detail
+      *ngIf="editPost != comment"
+      [post]="comment"
+      (postButton)="postEvent($event, comment)">
+    </app-post-detail>
+    <app-edit-post
+      *ngIf="editPost == comment"
+      [post]="editPost"
+      (editDone)="endEdit()">
+    </app-edit-post>
   </div>
 </div>
 <app-new-post [category]="category" [parent]="mainPost" (newPost)="addComment($event)"></app-new-post>

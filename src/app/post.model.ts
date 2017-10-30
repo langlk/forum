@@ -22,4 +22,12 @@ export class Post {
   downgoat() {
     this.downgoats += 1;
   }
+
+  delete(comment: Post) {
+    for (var i = 0; i < this.comments.length; i++) {
+      if (this.comments[i] == comment) {
+        this.comments = this.comments.slice(0, i).concat(this.comments.slice(i + 1));
+      }
+    }
+  }
 }
