@@ -1,4 +1,6 @@
 <h4>{{post.author}}</h4>
+<h5 class="timestamps">Posted: {{post.posted | date:'medium'}}</h5>
+<h5 class="timestamps">Last Edited: {{post.lastEdited | date:'medium'}}</h5>
 <p>{{post.content}}</p>
 <button (click)="edit()" type="button" class="btn">Edit</button>
 <button (click)="delete()" type="button" class="btn">Delete</button>

@@ -17,6 +17,7 @@ export class EditPostComponent implements OnInit {
   }
 
   done() {
+    this.post.lastEdited = new Date(Date.now());
     this.editDone.emit();
   }
 
