@@ -10,7 +10,7 @@
     <app-post-detail
       *ngIf="focusedPost == post"
       [post]="focusedPost"
-      (editPost)=edit(post)>
+      (postButton)="postEvent($event, post)">
     </app-post-detail>
     <app-edit-post
       *ngIf="editPost == post"

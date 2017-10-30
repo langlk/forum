@@ -9,7 +9,7 @@ import { Post } from '../post.model';
 })
 export class PostDetailComponent implements OnInit {
   @Input() post: Post;
-  @Output() editPost = new EventEmitter();
+  @Output() postButton = new EventEmitter();
 
   constructor() { }
 
@@ -17,7 +17,11 @@ export class PostDetailComponent implements OnInit {
   }
 
   edit() {
-    this.editPost.emit();
+    this.postButton.emit("edit");
+  }
+
+  delete() {
+    this.postButton.emit("delete");
   }
 
 }

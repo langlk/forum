@@ -40,6 +40,14 @@ export class CategoryComponent implements OnInit {
     this.category.posts.push(post);
   }
 
+  postEvent(event: string, post: Post) {
+    if (event == "edit") {
+      this.edit(post);
+    } else if (event == "delete") {
+      this.delete(post);
+    }
+  }
+
   edit(post: Post) {
     this.focusedPost = null;
     this.editPost = post;
@@ -48,6 +56,10 @@ export class CategoryComponent implements OnInit {
   endEdit(post: Post) {
     this.editPost = null;
     this.focusedPost = post;
+  }
+
+  delete(post: Post) {
+    this.category.delete(post);
   }
 
 }
