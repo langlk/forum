@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Post } from '../post.model';
+import { Category } from '../category.model';
 
 @Component({
   selector: 'app-new-post',
@@ -8,6 +9,8 @@ import { Post } from '../post.model';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
+  @Input() category: Category;
+  @Input() parent: Post;
   @Output() newPost = new EventEmitter();
 
   constructor() { }
@@ -16,7 +19,13 @@ export class NewPostComponent implements OnInit {
   }
 
   addPost(author: string, title: string, content: string) {
-    let post: Post = new Post(author, title, content);
+    let id: number = this.category.posts.length + 1;
+    let post: Post = new Post(id, author, title, content);
+    this.newPost.emit(post);
+  }
+
+  addComment(author: string, content: string) {
+    let post: Post = new Post(null, author, "comment", content);
     this.newPost.emit(post);
   }
 

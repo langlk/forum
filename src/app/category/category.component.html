@@ -7,9 +7,11 @@
   <h3 *ngIf="category.posts.length == 0">There are no posts yet!</h3>
   <div *ngFor="let post of category.posts" class="post">
     <h3>
-      <span (click)='showPost(post)' class="clickable">{{post.title}}</span>
+      <a (click)="goTo(post)">{{post.title}}</a>
       <span (click)="upgoat(post)" class="upgoat clickable">{{post.upgoats}}⬆️</span>
       <span (click)="downgoat(post)" class="downgoat clickable">{{post.downgoats}}⬇️</span>
+      <button *ngIf="focusedPost != post" type="button" class="btn" (click)='showPost(post)'>Preview</button>
+      <button *ngIf="focusedPost == post" type="button" class="btn" (click)='hidePost()'>Hide Preview</button>
     </h3>
     <app-post-detail
       *ngIf="focusedPost == post"
@@ -24,4 +26,4 @@
   </div>
 </div>
 
-<app-new-post (newPost)="addPost($event)"></app-new-post>
+<app-new-post [category]='category' (newPost)="addPost($event)"></app-new-post>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Category } from '../category.model';
@@ -21,7 +21,8 @@ export class CategoryComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -34,6 +35,10 @@ export class CategoryComponent implements OnInit {
   showPost(post: Post) {
     this.editPost = null;
     this.focusedPost = post;
+  }
+
+  hidePost() {
+    this.focusedPost = null;
   }
 
   addPost(post: Post) {
@@ -68,5 +73,9 @@ export class CategoryComponent implements OnInit {
 
   downgoat(post: Post) {
     post.downgoat();
+  }
+
+  goTo(post: Post) {
+    this.router.navigate(['posts', this.category.name, post.id]);
   }
 }

@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1>{{category.name}} > {{mainPost.title}}</h1>
+</div>
+
+<app-post-detail [post]="mainPost"></app-post-detail>
+
+<div class="comments">
+  <h2>Comments</h2>
+
+  <h3 *ngIf="mainPost.comments.length == 0">No Comments</h3>
+  <div *ngFor="let comment of mainPost.comments" class="comment">
+    <span (click)="upgoat(comment)" class="upgoat clickable">{{comment.upgoats}}⬆️</span>
+    <span (click)="downgoat(comment)" class="downgoat clickable">{{comment.downgoats}}⬇️</span>
+    <app-post-detail [post]="comment"></app-post-detail>
+  </div>
+</div>
+<app-new-post [category]="category" [parent]="mainPost" (newPost)="addComment($event)"></app-new-post>

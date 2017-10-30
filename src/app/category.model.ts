@@ -10,4 +10,12 @@ export class Category {
       }
     }
   }
+
+  find(id: number) {
+    for (var i = 0; i < this.posts.length; i++) {
+      if (this.posts[i].id == id) {
+        return this.posts[i];
+      }
+    }
+  }
 }

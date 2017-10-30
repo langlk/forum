@@ -10,6 +10,7 @@ import { routing } from './app.routing';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { PostDiscussionComponent } from './post-discussion/post-discussion.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EditPostComponent } from './edit-post/edit-post.component';
     CategoryComponent,
     PostDetailComponent,
     NewPostComponent,
-    EditPostComponent
+    EditPostComponent,
+    PostDiscussionComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { MainPageComponent } from './main-page/main-page.component';
 import { CategoryComponent } from './category/category.component';
+import { PostDiscussionComponent } from './post-discussion/post-discussion.component';
 
 const appRoutes: Routes = [
   {
@@ -12,6 +13,10 @@ const appRoutes: Routes = [
   {
     path: 'categories/:name',
     component: CategoryComponent
+  },
+  {
+    path: 'posts/:category/:id',
+    component: PostDiscussionComponent
   }
 ];
 

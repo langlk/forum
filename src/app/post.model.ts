@@ -3,8 +3,10 @@ export class Post {
   downgoats: number = 0;
   posted: Date;
   lastEdited: Date;
+  comments: Post[] = [];
 
   constructor(
+    public id: number,
     public author: string,
     public title: string,
     public content: string,

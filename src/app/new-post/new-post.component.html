@@ -1,7 +1,7 @@
 <div class="new-post">
-  <h2>Add a Post</h2>
+  <h2>Add a <span *ngIf="!parent">Post</span><span *ngIf="parent">Comment</span></h2>
   <form>
-    <div class="form-group">
+    <div *ngIf="!parent" class="form-group">
       <label for="title">Title:</label>
       <input #title class="form-control">
     </div>
@@ -13,6 +13,7 @@
       <label for="content">Content:</label>
       <input #content class="form-control">
     </div>
-    <button (click)="addPost(author.value, title.value, content.value); author.value=''; title.value=''; content.value='';" type="button" class="btn">Post</button>
+    <button *ngIf="!parent" (click)="addPost(author.value, title.value, content.value); author.value=''; title.value=''; content.value='';" type="button" class="btn">Post</button>
+    <button *ngIf="parent" (click)="addComment(author.value, content.value); author.value=''; content.value='';" type="button" class="btn">Comment</button>
   </form>
 </div>
