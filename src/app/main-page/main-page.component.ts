@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Category } from '../category.model';
+import { CategoryService } from '../category.service';
+
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css']
+  styleUrls: ['./main-page.component.css'],
+  providers: [CategoryService]
 })
 export class MainPageComponent implements OnInit {
+  categories: Category[];
 
-  constructor() { }
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit() {
+    this.categories = this.categoryService.getCategories();
   }
 
 }

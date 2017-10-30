@@ -1,3 +1,8 @@
-<p>
-  main-page works!
-</p>
+<div class="page-header">
+  <h1>TV Forums</h1>
+</div>
+
+<div class="categories">
+  <h2>Discussion Categories</h2>
+  <h3 *ngFor="let category of categories">{{category.name}}</h3>
+</div>
