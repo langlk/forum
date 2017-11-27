@@ -1,5 +1,26 @@
 # Forum
 
+### _Epicodus Practice in Angular, October 30, 2017_
+
+### By Kelsey Langlois
+
+## Description
+
+_This is a practice web app made to mimic forums such as Reddit._
+
+## Setup/Installation Requirements
+
+* Clone this repository.
+* Make sure you have Node.js installed.
+    * Instructions for installing Node.js can be found [here](https://www.learnhowtoprogram.com/javascript/getting-started-with-javascript-2f9a73dc-b7f5-4a22-9101-e69d49f552ac/installing-node-js).
+* From the project root directory, run the following commands in the terminal:
+  ```
+  npm install
+  bower install
+  ng serve
+  ```
+* Open the site in your default web browser at ```localhost:4200```.
+
 ## Planning:
 
 * Components for:
@@ -9,29 +30,22 @@
   * Post Detail
   * Post Edit/Delete
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+## Support and contact details
 
-## Development server
+_Please contact [kels.langlois@gmail.com](mailto:kels.langlois@gmail.com) with questions, comments, or issues._
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Technologies Used
 
-## Code scaffolding
+* JavaScript
+* TypeScript
+* Node.js
+* Angular
+* Bootstrap
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0. To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## Build
+### License
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Copyright (c) 2017 **Kelsey Langlois**
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+*This software is licensed under the MIT license.*
